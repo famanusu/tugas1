@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Regresi Linear - Jam Belajar vs Nilai Ujian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .formula {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Perhitungan Koefisien Regresi dan Evaluasi Model</h1>
+
+    <h2>1. Persamaan Regresi Linear</h2>
+    <p>Model regresi linear dinyatakan sebagai:</p>
+    <p class="formula">y = β₀ + β₁x</p>
+
+    <h2>2. Hitung Koefisien Regresi</h2>
+    <table>
+        <tr>
+            <th>Jam Belajar (X)</th>
+            <th>Nilai Ujian (Y)</th>
+            <th>X * Y</th>
+            <th>X²</th>
+        </tr>
+        <tr><td>2</td><td>55</td><td>110</td><td>4</td></tr>
+        <tr><td>4</td><td>65</td><td>260</td><td>16</td></tr>
+        <tr><td>6</td><td>75</td><td>450</td><td>36</td></tr>
+        <tr><td>8</td><td>85</td><td>680</td><td>64</td></tr>
+        <tr><td>10</td><td>95</td><td>950</td><td>100</td></tr>
+    </table>
+
+    <p>ΣX = 30, ΣY = 375, ΣXY = 2450, ΣX² = 220, n = 5</p>
+
+    <h3>Hitung β₁:</h3>
+    <p class="formula">β₁ = (nΣXY - ΣXΣY) / (nΣX² - (ΣX)²)</p>
+    <p>β₁ = (5×2450 - 30×375) / (5×220 - 30²)</p>
+    <p>β₁ = (12250 - 11250) / (1100 - 900) = 1000 / 200 = <b>5</b></p>
+
+    <h3>Hitung β₀:</h3>
+    <p class="formula">β₀ = (ΣY - β₁ΣX) / n</p>
+    <p>β₀ = (375 - (5 × 30)) / 5</p>
+    <p>β₀ = (375 - 150) / 5 = 225 / 5 = <b>45</b></p>
+
+    <h3>Persamaan Regresi:</h3>
+    <p class="formula">Y = 45 + 5X</p>
+
+    <h2>3. Evaluasi Model (R²)</h2>
+    <h3>Hitung R²:</h3>
+    <p class="formula">R² = 1 - (Σ(yᵢ - ŷᵢ)² / Σ(yᵢ - ȳ)²)</p>
+
+    <table>
+        <tr>
+            <th>X</th>
+            <th>Y (Aktual)</th>
+            <th>Ŷ (Prediksi)</th>
+            <th>(Y - Ŷ)²</th>
+        </tr>
+        <tr><td>2</td><td>55</td><td>55</td><td>0</td></tr>
+        <tr><td>4</td><td>65</td><td>65</td><td>0</td></tr>
+        <tr><td>6</td><td>75</td><td>75</td><td>0</td></tr>
+        <tr><td>8</td><td>85</td><td>85</td><td>0</td></tr>
+        <tr><td>10</td><td>95</td><td>95</td><td>0</td></tr>
+    </table>
+
+    <p>Σ(Y - Ŷ)² = 0, Σ(Y - Ȳ)² = 1000</p>
+    <p>R² = 1 - (0 / 1000) = <b>1</b></p>
+
+    <h2>4. Kesimpulan</h2>
+    <ul>
+        <li>Model regresi: <b>Y = 45 + 5X</b></li>
+        <li>Koefisien β₁ = 5 → Setiap tambahan 1 jam belajar meningkatkan nilai ujian sebesar 5 poin.</li>
+        <li>R² = 1 → Model ini sangat akurat dalam menjelaskan hubungan antara jam belajar dan nilai ujian dalam dataset ini.</li>
+    </ul>
+
+</body>
+</html>
